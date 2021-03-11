@@ -1,0 +1,21 @@
+/*
+    Developed by.........: Michel Pech
+    Date project.........: Febuary, 2021
+    Name Project.........: Music Player
+*/
+
+@font-face {
+    font-family: Confortaa;
+    src: './Fonts/Comfortaa-VariableFont_wght.ttf'
+}
+
+html, body {    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li, a {
+    text-decoration: none;
+    list-style: none;
+}

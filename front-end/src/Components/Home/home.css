@@ -1,0 +1,60 @@
+/*
+    Developed by.........: Michel Pech
+    Date project.........: Febuary, 2021
+    Name Project.........: Music Player
+*/
+
+/* page structure */
+.home-content {
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: 80vh 20vh;
+    grid-template-areas: "main   aside"
+                         "footer footer";                        
+}
+
+/* main */
+.home-main {
+    grid-area: main;
+    display: flex;    
+}
+
+.home-main-content {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 20vh;
+    margin-left: 15vw;
+    width: 30vw;
+}
+
+.home-main-content Button {
+    margin: 3px;
+}
+
+/* aside */
+.home-aside {
+    grid-area: aside;
+    display: flex;
+    width: 40vw;
+    height: 80vh;
+    justify-self: center;
+    align-self: center;
+}
+
+/* footer */
+.home-footer {
+    grid-area: footer;
+    background-color: black;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.home-footer-icons-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+}
+
+.home-footer-icons-content a {
+    color: inherit;
+}
