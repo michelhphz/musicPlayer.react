@@ -23,12 +23,14 @@ public class Tracks implements Serializable {
 	private String valuation;
 	private String type;
 	private String style;
+	private String link;
 	
 	public Tracks() {
 		
 	}
 
-	public Tracks(Long id, String name, String album, String autor, String valuation, String type, String style) {
+	public Tracks(Long id, String name, String album, String autor, String valuation, String type, String style,
+				  String link) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,6 +39,7 @@ public class Tracks implements Serializable {
 		this.valuation = valuation;
 		this.type = type;
 		this.style = style;
+		this.link = link;
 	}
 
 	public Long getId() {
@@ -93,6 +96,14 @@ public class Tracks implements Serializable {
 
 	public void setStyle(String style) {
 		this.style = style;
+	}	
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	@Override
