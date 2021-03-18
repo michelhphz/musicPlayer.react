@@ -1,6 +1,7 @@
 package com.musicplayer.backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -19,5 +20,24 @@ public class TracksService {
 	@Transactional
 	public List<Tracks> findAll(){
 		return repository.findAll();
+	}
+	
+	@Transactional
+	public Tracks findById(Long id) {
+		Optional<Tracks> obj = repository.findById(id);
+		return obj.get();
+	}
+	
+	@Transactional
+	public Tracks insert(Tracks track) {
+		Tracks obj = new Tracks(track.getId(), 
+							    track.getAlbum(), 
+							    track.getAutor(), 
+							    track.getValuation(),
+							    track.getType(), 
+							    track.getStyle(), 
+							    track.getLink());
+		obj = repository.save(obj);
+		return obj;
 	}
 }

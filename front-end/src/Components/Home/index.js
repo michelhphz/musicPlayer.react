@@ -32,56 +32,12 @@ class Home extends Component {
         }
 
         this.entrar = this.entrar.bind(this)
-        this.login  = this.login.bind(this)
     }
 
 	entrar(e)
 	{
-		e.preventDefault()
-		
-		this.login()
-	}  
-    
-	componentDidMount(){
-		// Verificar se tem algum usuario logado
-		if(firebase.getCurrent())
-		{
-			return this.props.history.replace('dashboard')
-		}
-	}    
-
-	login = async () => 
-	{
-		const {email, password} = this.state;
-		console.log(email, password)
-		try
-		{
-			
-		    await firebase.login(email, password)
-            .then((result) =>
-                this.props.history.replace('/dashboard')
-            ) 
-            .catch((error) => 
-			{
-		    	if(error.code === 'auth/user-not-found' || 
-                   error.code === 'auth/invalid-email'  ||
-                   error.code === 'auth/wrong-password'
-                )
-		    	{
-		    		alert('Este usuario não existe!')
-		    	}                
-		    	else
-		    	{
-		    		alert('Codigo de erro:' + error.code)
-		    	}
-		    })           
-			
-		}
-		catch(error)
-		{
-			alert(error.message)
-		}
-	}    
+		return this.props.history.replace('dashboard')
+	}     
     
     render()
     {

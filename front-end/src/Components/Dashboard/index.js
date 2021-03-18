@@ -9,7 +9,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 // Database
-import firebase from "../../firebase";
+import fetchTracks from "../../api";
 
 // Styles Page
 import "./dashboard.css";
@@ -27,41 +27,19 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        this.loadData()        
-    }
-
-    loadData() {
-        const tracks = firebase.app.database().ref('tracks')
-        console.log(tracks)
+        this.loadTracks()        
     }
 
     loadTracks() {
-        firebase.app.ref('tracks').on('value', (snapshot) => {
-            let state = this.state
-            state.tracks = []
-
-            snapshot.forEach((childItem) => {
-                state.tracks.push({
-                    key: childItem.key,
-                    name: childItem.val().name,
-                    link: childItem.val().link,
-                    description: childItem.val().description,
-                    status: childItem.val().status
-                })
-            })
+        fetchTracks()
+        .then(function(response) {
+            console.log(response.data)
+        })
+        .catch(function(error) {
+            alert(error)
         })
 
-        console.log(this.state.tracks)
     }
-
-    logout = async () => {
-        await firebase.logout().catch((error) => {
-            alert(error);
-        });
-
-        localStorage.removeItem("nome");
-        this.props.history.push("/");
-    };
 
     render() {
         return (

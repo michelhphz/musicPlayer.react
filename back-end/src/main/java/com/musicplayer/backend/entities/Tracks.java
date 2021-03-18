@@ -2,6 +2,7 @@ package com.musicplayer.backend.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,24 +17,29 @@ public class Tracks implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "track_id")
 	private Long id;
-	private String name;
+	@Column(name = "track_album")
 	private String album;
+	@Column(name = "track_autor")
 	private String autor;
+	@Column(name = "track_valuation")
 	private String valuation;
+	@Column(name = "track_type")
 	private String type;
+	@Column(name = "track_style")
 	private String style;
+	@Column(name = "track_link")
 	private String link;
 	
 	public Tracks() {
 		
 	}
 
-	public Tracks(Long id, String name, String album, String autor, String valuation, String type, String style,
+	public Tracks(Long id, String album, String autor, String valuation, String type, String style,
 				  String link) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.album = album;
 		this.autor = autor;
 		this.valuation = valuation;
@@ -44,18 +50,6 @@ public class Tracks implements Serializable {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getAlbum() {
